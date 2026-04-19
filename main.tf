@@ -11,5 +11,5 @@ resource "aws_instance" "devops_nodes" {
 }
 
 output "instance_public_ip" {
-  value = aws_instance.devops_node[0].public_ip
+  value = aws_instance.devops_nodes[*].public_ip
 }
