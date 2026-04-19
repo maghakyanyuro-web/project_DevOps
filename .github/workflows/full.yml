@@ -1,0 +1,36 @@
+name: project_DevOps
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  validate-infrastructure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+      - run: terraform init
+      - run: terraform validate
+
+  deploy:
+    needs: validate-infrastructure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to AWS Server via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd ~/project_DevOps
+            git pull origin main
+            docker stop my-devops-app || true
+            docker rm mu-devops-app || true
+            docker build -t project-DevOps-image .
+            docker run -d -p 5000:5000 --name my-devops-app project-DevOps-image
