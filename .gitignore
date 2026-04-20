@@ -1,21 +1,16 @@
 .terraform/
 *.tfstate
 *.tfstate.backup
-*.pem
-setup.sh
-
-# Ansible
-inventory.ini
-
-# Terraform vars
 *.tfvars
 *.tfvars.json
 
-# Python
+*.pem
+*.key
+
+inventory.ini
 __pycache__/
 *.pyc
-*.pyo
-
-# Environment
 .env
-*.env
+*.tar
+.DS_Store
+Thumbs.db
