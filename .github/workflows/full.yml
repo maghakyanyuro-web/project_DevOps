@@ -31,6 +31,6 @@ jobs:
             cd ~/project_DevOps
             git pull origin main
             sudo docker stop my-devops-app || true
-            sudo docker rm mu-devops-app || true
+            sudo docker rm my-devops-app || true
             sudo docker build -t project-devops-image .
             sudo docker run -d -p 5000:5000 --name my-devops-app project-devops-image
