@@ -33,6 +33,7 @@ resource "aws_security_group" "allow_ssh_http" {
 
 resource "aws_instance" "devops_nodes" {
   count		= 2
+  key_name	= "my-key"
   ami		= "ami-0ec10929233384c7f"
   instance_type = "m7i-flex.large"
 
@@ -45,6 +46,14 @@ resource "aws_instance" "devops_nodes" {
   }
 }
 
+resource "local_file" "inventory" {
+  content  = templatefile("inventory.tpl", {
+    ips = aws_instance.devops_nodes[*].public_ip
+  })
+  filename = "inventory.ini"
+}
+
 output "instance_public_ip" {
   value = aws_instance.devops_nodes[*].public_ip
 }
+

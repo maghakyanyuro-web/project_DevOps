@@ -11,7 +11,7 @@
     - name: Run the app container
       docker_container:
         name: my-python-app
-        image: yuro/project-devops-image:latest
+        image: 857dock/project-devops-image:latest
         state: started
         ports:
           - "5000:5000"
