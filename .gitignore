@@ -3,3 +3,19 @@
 *.tfstate.backup
 *.pem
 setup.sh
+
+# Ansible
+inventory.ini
+
+# Terraform vars
+*.tfvars
+*.tfvars.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.env
+*.env
