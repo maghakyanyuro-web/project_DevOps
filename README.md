@@ -39,8 +39,6 @@ Developer
 | **Ansible** | Automates deployment across all servers |
 | **Kubernetes** | Orchestrates containers with auto-healing & scaling |
 | **GitHub Actions** | CI/CD pipeline triggered on every push |
-| **Prometheus** | Collects server metrics |
-| **Grafana** | Visualizes metrics on beautiful dashboards |
 | **AWS EC2** | Cloud infrastructure (2 nodes) |
 | **Flask (Python)** | Web application server |
 
