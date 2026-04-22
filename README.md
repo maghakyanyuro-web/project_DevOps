@@ -25,10 +25,7 @@ Developer
                     ▼
             Kubernetes (k8s)
           (Orchestration & Scaling)
-                    │
-                    ▼
-         Prometheus + Grafana
-              (Monitoring)
+
 ```
 
 ---
